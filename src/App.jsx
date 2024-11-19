@@ -1,13 +1,11 @@
-import ProductList from "./components/ProductList";
-import products from "./products";
 import NavBar from "./components/NavBar";
+import HomeScreen from "./screens/HomeScreen";
 
 const App = () => {
   return (
     <>
       <NavBar />
-      <h1>All Products</h1>
-      <ProductList products={products} />
+      <HomeScreen />
     </>
   );
 };
