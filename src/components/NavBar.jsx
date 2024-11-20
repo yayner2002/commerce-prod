@@ -1,4 +1,5 @@
 import logo from "/PITlogo.png";
+import { NavLink } from "react-router-dom"
 const NavBar = () => {
   const linkStyle = {
     textDecoration: "none",
@@ -17,7 +18,7 @@ const NavBar = () => {
         }}
       >
         <div>
-          <a href="/">
+          <NavLink to="/">
             <img
               src={logo}
               alt=""
@@ -27,7 +28,7 @@ const NavBar = () => {
                 display: "block",
               }}
             />
-          </a>
+          </NavLink>
         </div>
         <ul
           style={{
@@ -38,24 +39,24 @@ const NavBar = () => {
           }}
         >
           <li>
-            <a href="" style={linkStyle}>
+            <NavLink to="/products" style={linkStyle}>
               PRODUCTS
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a style={linkStyle} href="">
+            <NavLink style={linkStyle} to="/services">
               SEVICES
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a style={linkStyle} href="">
+            <NavLink style={linkStyle} to="/add-product">
               ADD PRODUCT
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a style={linkStyle} href="">
+            <NavLink style={linkStyle} to="/login">
               LOGIN
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

@@ -1,12 +1,16 @@
 import Product from "../components/Product";
 import products from "../products";
-import "./HomeScreen.css"
 
 const HomeScreen = () => {
   return (
     <>
       <h1>Latest Products</h1>
-      <div className="card-list">
+      <div style={{
+        display: "flex",
+        gap: "0.5rem",
+        marginTop: "2rem",
+        flexWrap: "wrap"
+      }}>
         {products.map((product) => (
           <Product key={product._id} product={product} />
         ))}
