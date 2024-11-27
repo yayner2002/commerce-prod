@@ -1,28 +1,52 @@
-const ProductAddForm = () => {
-  // create a piece of State for storing all products
+import { useState } from "react";
 
+const ProductAddForm = () => {
+  // create a piece of State for storing all products initial state is empty array
+  const [products, setProducts] = useState([]);
   // create a piece of State for the current product details
+  const [product, setProduct] = useState({
+    name: "",
+    description: "",
+    price: "",
+    brand: "",
+    imageURL: "",
+  });
 
   // Handle input change and update product state
-  const handleInputChange = (e) => {};
+  const handleInputChange = (e) => {
+    const { value, name } = e.target;
+    setProduct({ ...product, [name]: value });
+  };
   // Function to handle adding a new product
 
   const addProduct = (e) => {
     e.preventDefault();
-
+    console.log("Form Has Been Submited.");
     // Add new product to the list
+    setProducts([ ...products, product])
+    setProduct({
+      name: "",
+      description: "",
+      price: "",
+      brand: "",
+      imageURL: "",
+    })
+
     // Reset form fields
+
   };
   return (
     <>
       {" "}
       <div>
         <h2>Add Product</h2>
-        <form>
+        <form onSubmit={addProduct}>
           <div style={{ marginBottom: "10px" }}>
             <input
               type="text"
+              value={product.name}
               name="name"
+              onChange={handleInputChange}
               placeholder="Product Name"
               style={{ padding: "10px", width: "300px", marginBottom: "10px" }}
             />
@@ -31,6 +55,8 @@ const ProductAddForm = () => {
           <div style={{ marginBottom: "10px" }}>
             <textarea
               name="description"
+              value={product.description}
+              onChange={handleInputChange}
               placeholder="Product Description"
               style={{
                 padding: "10px",
@@ -44,6 +70,8 @@ const ProductAddForm = () => {
             <input
               type="number"
               name="price"
+              value={product.price}
+              onChange={handleInputChange}
               placeholder="Product Price"
               style={{ padding: "10px", width: "300px", marginBottom: "10px" }}
             />
@@ -52,6 +80,8 @@ const ProductAddForm = () => {
             <input
               type="text"
               name="brand"
+              value={product.brand}
+              onChange={handleInputChange}
               placeholder="Product Brand"
               style={{ padding: "10px", width: "300px", marginBottom: "10px" }}
             />
@@ -60,6 +90,8 @@ const ProductAddForm = () => {
             <input
               type="text"
               name="imageURL"
+              value={product.imageURL}
+              onChange={handleInputChange}
               placeholder="Image URL"
               style={{ padding: "10px", width: "300px", marginBottom: "10px" }}
             />
